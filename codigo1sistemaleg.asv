@@ -1,0 +1,27 @@
+%------------------------------gráficos de amplitude, angulo de forma
+%senoidal do movimento de uma perna humana---------------------%
+
+%DECLARAÇÃO DE VARIÁVEIS
+l=0.83;
+A=(pi/15); %ANGULO EM RADIANO
+amplitude=(sin(A))/(l);
+T=(0:0.1:10);
+AMP = amplitude*(sin(pi*T));
+THETA = asind(AMP/1);
+%------------------------------------------------------------------
+%PLOTAGEM DO GRAFICO AMPLITUDE VS TEMPO
+subplot(2,1,1);
+plot(T,AMP);
+grid on;
+title('AMPLITUDE VS TEMPO');
+xlabel('Tempo');
+ylabel('Amplitude');
+%------------------------------------------------------------------
+%PLOTAGEM DO GRÁFICO ANGULO THETA VS TEMPO
+subplot(2,1,2);
+plot(T,THETA,'black');
+grid on;
+title('ANGULO THETA VS TEMPO');
+xlabel('Tempo');
+ylabel('ANGULO THETA');
+

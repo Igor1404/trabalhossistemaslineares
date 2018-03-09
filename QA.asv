@@ -1,0 +1,26 @@
+a0 = 0; %Definindo o A0 como 0;
+w0 = pi/2; %frequencia inicial
+Np = 2^10; %Número de pontos a serem trabalhados
+T = 4; % Periodo do sinal
+
+Ts = T/Np;
+
+x = zeros(1,Np); %Sinal de resposta
+t = zeros(1,Np); %Variavel de tempo
+N = input('Digite o número de harmonicas: ');
+a = zeros(1,N);%Pesos da harmonica
+
+
+for n = 1:Np
+    t(n) = Ts*n;
+    x(n) = a0/2;
+    for k=1:N
+        a(k) = (4/(k*pi)) * sin(k*pi/2);
+        x(n) = x(n) + a(k)*cos(k*w0*t(n));
+    end
+end
+        
+
+plot(t,x)
+figure
+bar([0 1:2:2*N
